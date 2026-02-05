@@ -10,24 +10,47 @@ class myLoops {
 
 class Marathoon {
 
-    public static double bestPlayer(double[] times){
-        double bestTime = times[0];
-        for (int i = 0; i < times.length; i++){
-            if (times[i] < bestTime){
-                bestTime = times[i];
-            }
+    pclass myLoops {
+    public static void main(String[] args) {
+        int i = 0;
+        while (i < 20) {
+            System.out.println("i = " + i); // will print unitil "i = 19"
+            i += 1;
         }
-        return bestTime;
     }
+}
 
-    public static double secondBestPlayer(double[] times) {
-        double bestTime = bestPlayer(times);
-        double secondBestTime = times[0];
-        for (int i = 0; i < times.length; i++) {
-            if (times[i] < secondBestTime && times[i] > bestTime){
+class Marathoon {
+
+      public static int getMinIndex(int[] values) {
+        int minValue = Integer.MAX_VALUE;
+        int minIndex = -1;
+        
+        for(int i = 0; i < values.length; i++) {
+            if (values[i] < minValue) {
+                minValue = values[i];
+                minIndex = i;
             }
         }
-        return secondBestTime;
+        
+        return minIndex;
+    }
+    
+    public static int getSecondMinIndex(int[] values) {
+        int secondIdx = -1;
+        int minIdx = getMinIndex(values);
+        
+        for(int i = 0; i < values.length; i++) {
+            if (i == minIdx) {
+                continue;
+            }
+            
+            if (secondIdx == -1 || values[i] < values[secondIdx]) {
+                secondIdx = i;
+            }
+        }
+        
+        return secondIdx;
     }
 
     public static void main(String[] arguments){
